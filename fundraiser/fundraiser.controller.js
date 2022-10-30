@@ -115,5 +115,51 @@ class Fundraiser {
 		return result;
 	}
 }
+	async getFundraiser(title) {
+		// Query and Sort options for searching user
+		const query = {
+			title,
+		};
+		const options = {
+			sort: { title: 1 },
+		};
+
+		try {
+			// Finds the user in the collection
+			const collection = await this.fundraiserCollection.findOne(
+				query,
+				options
+			);
+
+			// If a user is found it will return it otherwise, returns null
+			if (!_.isNil(collection)) return collection;
+			return {};
+		} catch (e) {
+			throw e;
+		}
+	}
+	async getFundraiser(title) {
+		// Query and Sort options for searching user
+		const query = {
+			title,
+		};
+		const options = {
+			sort: { title: 1 },
+		};
+
+		try {
+			// Finds the user in the collection
+			const collection = await this.fundraiserCollection.findOne(
+				query,
+				options
+			);
+
+			// If a user is found it will return it otherwise, returns null
+			if (!_.isNil(collection)) return collection;
+			return {};
+		} catch (e) {
+			throw e;
+		}
+	}
 
 module.exports = new Fundraiser();

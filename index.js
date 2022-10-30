@@ -1,8 +1,10 @@
-const { appServer } = require('./config/index');
-const port = process.env.PORT || 3000;
+const db = require('./db');
+const auth0 = require('./auth0');
+const appServer = require('./server');
 
-require('dotenv').config();
-
-appServer.listen(port, () => {
-	console.log(`Server is running on port ${port}`);
-});
+// Exports all configuration functions
+module.exports = {
+	dbClient: db,
+	auth0: auth0,
+	appServer,
+};
